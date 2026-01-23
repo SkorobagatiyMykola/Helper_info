@@ -1,0 +1,45 @@
+Lesson 3   3. Первые изменения, git status и git diff 
+============================
+link: https://www.youtube.com/watch?v=I2s3V-cvWKk&list=PLm-ReICwxMDZTCR8LgKjXlX3CIQVH8Y9f&index=6
+
+cd existing-project
+git init
+git add --all
+git commit -m "Initial Commit"
+git remote add origin https://bitbucket.sense.bank.int/scm/~nskorobagatyi/test-git.git
+git push -u origin HEAD:master
+
+============================
+
+cd C:\My_helper\Git_helper\projects_from_youtobe\pr_03
+cd C:/My_helper/Git_helper/projects_from_youtobe/pr_03 - "+" is correct
+=====================
+Команди
+
+1. git init
+    Результат появиться папка .git
+2. git add .
+    Додавання всіх змінених файлів 
+3. git commit -m "Init commit, my first commit SN"
+    Створення коміта
+4. git remote add origin https://bitbucket.sense.bank.int/scm/~nskorobagatyi/test-git.git
+    Связуємо локальний репозиторій з віддаленим
+5. git push -u origin master
+    Додаємо зміни (коміти) на віддалений репозиторій
+========================================================================
+
+(!) Команди з урока
+1. git status
+    Допомагає побачити список змінених файлів
+
+2. dit diff
+    Які були зміни в усіх змінених файлах
+2.1 git diff css/main.css - зміни в конкретному файлі
+
+(!) Git - працює зі строками і він не розуміє зміну в одному символі (навіть якщо вставлений пробіл), 
+        якщо змінився тільки 1 символ, то Git розуміє що 1 строка була видалена, а інша вставлена
+
+3. git restore (file name)
+    ex. git restore e.html - повернення файлу в первичний вигляд
+
+(!) CTRL+D  Compare with

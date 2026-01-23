@@ -1,0 +1,52 @@
+==============================================
+GIT
+==============================================
+Git — розподілена система керування версіями файлів 
+
+В Git файли можуть знаходитися в одному із 3-х станів: 
+
+- 1. зміненому (файл було змінено, але зміни не зафіксовано) 
+    Була проведена тіль зміна в файлі
+- 2. підготовленому (файли було змінено і відмічено для фіксації).
+    Була зміна в файлі і вони підготовлені для коміта
+- 3. зафіксованому (файл вже збережено в локальній базі даних), 
+    (!) Файл вже закомічений
+
+Commands:
+1. git --version
+2. git config --list
+    Список настройок (конфігурації)
+3.  git init --help open page in browser
+    git add --help  from console to browser (!)
+
+4.  clear (Ctrl+l(L) ) - clear console (cls - in command prompt)
+    ls (dir) - list folders and files
+    ===============================
+
+    [http]
+	sslCAInfo = C:\\CACERT\\alfa.pem
+[user]
+	name = Skorobagatyi Mykola
+	email = nskorobagatyi@sensebank.com.ua
+[credential "https://bitbucket.sense.bank.int"]
+	provider = bitbucket
+[credential]
+	helper = store
+[core]
+	editor = code --wait
+[alias]
+	br = branch
+	st = status
+	co = commit
+	ch = checkout
+	create = checkout -b
+	last = log -1 HEAD
+	temp = commit -am 'Temp commit'
+	rename = commit --amend -m
+	up = pull --rebase origin
+	drop = branch -D
+	undo = reset --hard HEAD^
+	graph = log --stat --graph
+	authors = shortlog -s -n
+	aliases = config --get-regexp alias
+	count = ! git log --oneline | wc -l

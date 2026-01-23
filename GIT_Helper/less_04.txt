@@ -1,0 +1,27 @@
+Lesson 4   Коммиты, история коммитов. Работа с файлами
+===========================================================
+link: https://www.youtube.com/watch?v=pOlBgsWUFJc&list=PLm-ReICwxMDZTCR8LgKjXlX3CIQVH8Y9f&index=7
+===========================================================
+Коміт - фіксований набір змін
+
+cd C:/My_helper/Git_helper/projects_from_youtobe/pr_04/pr_4 - "+" is correct
+
+
+git clone https://bitbucket.sense.bank.int/scm/~nskorobagatyi/test-git.git
+git clone https://bitbucket.sense.bank.int/scm/~nskorobagatyi/test-git.git pr_4
+
+
+Відслідковувані файли і не відслідковувані
+
+не відслідковувані
+
+==========================
+992189abc9c3a072ad8ca67b3c97f97d1fc1d123
+
+git revert 992189abc9c3a072ad8ca67b3c97f97d1fc1d123
+
+git revert --no-edit 992189abc9c3a072ad8ca67b3c97f97d1fc1d123
+
+git commit -a -m 'Name commit' => Робимо зразу і підготовлені файли і коміт зі змінами
+
+git log --oneline | wc -l

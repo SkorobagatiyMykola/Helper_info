@@ -1,0 +1,39 @@
+==============================================
+GIT
+==============================================
+1. Git затачен на строки и не важно на каком язике ви пишете
+2.  Локальний репозіторій - на компьютері
+    Удалений репозиторій - на сервері git ()
+3. Клонування репо => Копіювання репо до себе на машину + історія змін
+    C:\My_helper\Git_helper\tests\2 -   command prompt
+    C:/My_helper/Git_helper/tests/2 -   for git bush
+    Step by spep
+        git clone ( link)
+        git clone https://bitbucket.sense.bank.int/scm/bpmn/csfregisterdeal.git
+        git clone https://bitbucket.sense.bank.int/scm/~nskorobagatyi/camunda-test.git
+        git clone https://github.com/vuejs/core.git
+        git clone https://github.com/vuejs/vue.git
+
+
+
+=======================================================================
+C:\Test_project_GIT\proxy-service-2\.git\logs\refs\heads
+
+(!) How to save logs info (все зберігається в текстових файлах):
+
+0000000000000000000000000000000000000000 43e7e2321a99563281bce2bac84fe14c7be9c82c Skorobagatyi Mykola <nskorobagatyi@sensebank.com.ua> 1727878965 +0300	branch: Created from master^0
+43e7e2321a99563281bce2bac84fe14c7be9c82c 43e7e2321a99563281bce2bac84fe14c7be9c82c Skorobagatyi Mykola <nskorobagatyi@sensebank.com.ua> 1727880252 +0300	Branch: renamed refs/heads/IL-4410_PartnerInstallmentWF_addded_tfi_supermarket_and_tfi_elmart_l_and_tfi_nikstore_and_tfi_tokio_and_levconi_changed_moyo to refs/heads/IL-4410_PartnerInstallmentWF_addded_tfi_supermarket_and_tfi_elmart_l_and_tfi_nikstore_and_tfi_tokio_utv_and_levconi_changed_moyo
+43e7e2321a99563281bce2bac84fe14c7be9c82c d7ebf5464c88a87ba0acf9517a756dde4bcbfb93 Skorobagatyi Mykola <nskorobagatyi@sensebank.com.ua> 1727880734 +0300	commit: IL-4410 PartnerInstallmentWF - added 5 partners tfi_supermarket tfi_elmart_l tfi_nikstore tfi_tokio_utv levconi and changed filds for moyo
+d7ebf5464c88a87ba0acf9517a756dde4bcbfb93 cc47353114217c807fd2ed9119b4f834412c6542 Skorobagatyi Mykola <nskorobagatyi@sensebank.com.ua> 1727943058 +0300	commit: IL-4410 PartnerInstallmentWF - Changed filds for tfi_tokio_utv
+
+
+1727878965 - It is time
+int time = 1727943058;
+LocalDateTime triggerTime =
+                LocalDateTime.ofInstant(Instant.ofEpochSecond(time),
+                        TimeZone.getDefault().toZoneId());
+
+System.out.println(triggerTime);
+        
+=======================================================================
+

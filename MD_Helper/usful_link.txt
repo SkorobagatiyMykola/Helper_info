@@ -1,0 +1,6 @@
+Useful links:
+
+1. https://markdown.rozh2sch.org.ua/
+2. https://uk.wikipedia.org/wiki/Markdown
+3. https://gist.github.com/Jekins/2bf2d0638163f1294637
+4. https://digihist.lvivcenter.org/posibnik-z-cifrovoyi-istoriyi/cifrovi-publikaciyi/pochatok-roboti-z-markdown
