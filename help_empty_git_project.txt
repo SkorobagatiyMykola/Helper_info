@@ -7,6 +7,8 @@ git branch -M main
 git remote add origin https://github.com/SkorobagatiyMykola/Helper_info.git
 git push -u origin main
 
+
+git remote add origin https://github.com/SkorobagatiyMykola/English_Helper
 ==================================
 
 …or push an existing repository from the command line

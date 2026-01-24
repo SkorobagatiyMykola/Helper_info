@@ -1,0 +1,9 @@
+IT-abbreviation:
+
+
+LDAP	- Lightweight Directory Access Protocol
+	Полегшаний протокол доступу до директорій/каталогів.
+
+LOAN 	- online analytical processing
+
+ 

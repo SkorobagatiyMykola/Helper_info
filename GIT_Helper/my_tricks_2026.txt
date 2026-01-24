@@ -1,0 +1,7 @@
+My usful commands:
+
+1. git init => Create git linl
+2. git add -A => Added all changes
+		Be careful flag -a => Don't work
+3. git commit -m "Description comment"
+		
