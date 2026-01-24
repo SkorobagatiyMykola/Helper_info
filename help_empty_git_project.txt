@@ -9,7 +9,7 @@ git push -u origin main
 
 
 git remote add origin https://github.com/SkorobagatiyMykola/English_Helper
-==================================
+================================== 1
 
 …or push an existing repository from the command line
 git remote add origin https://github.com/SkorobagatiyMykola/Helper_info.git
