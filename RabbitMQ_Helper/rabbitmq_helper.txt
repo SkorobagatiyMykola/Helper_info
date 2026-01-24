@@ -1,0 +1,5 @@
+
+Enter to RabbitMQ 
+localhost:15672
+
+username/password:  guest/guest
