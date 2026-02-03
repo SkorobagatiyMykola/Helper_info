@@ -1,0 +1,15 @@
+1. Ctrl + Shift + U   			=>  shortcut to convert code to upper or lower case
+					    Toggle case for word at caret oe selected block
+2. Ctrl + D				=>  Duplicate current line or selected block
+3. Ctrl + Y				=>  Delete line at caret
+4. Ctrl + W				=>  Select successively increasing code blocks
+   Ctrl + Shift + W			=>  Decrease current selection to previous state
+5. Ctrl + Shift + Alt			=>  You can write the same text in multiple lines.
+   Ex.
+	System.out.println("Hello my friend");
+        System.out.println("Hello my friend");
+        System.out.println("Hello my friend");
+
+6. (!) How change window size(Commit Changes)   =>  Win+ ("Up", "Down", "Left", "Right")
+7. Ctrl + Shift + "-"/"+"			=>  You can Expand or collapse code elements 
+	// https://www.jetbrains.com/help/idea/working-with-source-code.html#expand-or-collapse-code-elements
