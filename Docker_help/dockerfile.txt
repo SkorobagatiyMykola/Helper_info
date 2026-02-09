@@ -1,0 +1,26 @@
+=====================================================
+Dockerfile
+=====================================================
+Commands:
+1. docker build -t main:v1 .  		///
+	// Створюється образ (image) main:v1
+1. docker build -t php1 .
+2. docker run -p 3001:8082 --name mainCont 
+3. docker run -d -p 8083:80  --name php-cont1 php1
+
+6. docker run -d -p 80:80 --name Test docker/getting-started
+
+=====================================================
+Example for context Dockerfile:
+FROM openjdk:17
+
+COPY . /java
+
+WORKDIR /java
+
+EXPOSE 8082
+
+RUN javac Main.java
+
+CMD [ "java", "Main" ]
+=====================================================
