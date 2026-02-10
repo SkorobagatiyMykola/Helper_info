@@ -3,3 +3,4 @@ Hot keys:
 1. Alt+F7  - find file/ I used it for find special text in file
 2. Shift+F4 => Create file
 3. Shift+F6 => Rename file
+4. 
