@@ -1,0 +1,11 @@
+Kafka Producer
+
+Що він має виконувати:
+- Publish Events
+- Serialize to byte
+- Визначати topic
+- Визначати partition
+===========================================
+Communication style:
+KafkaTemplate
+
