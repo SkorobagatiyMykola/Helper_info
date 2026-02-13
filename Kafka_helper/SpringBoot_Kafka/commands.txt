@@ -1,0 +1,11 @@
+cd C:\kafka\bin\windows
+kafka-server-start.bat ..\..\config\kraft\server-1.properties
+
+kafka-topics.bat --list --bootstrap-server localhost:9092,localhost:9094
+
+topic: product-created-events-topic
+
+kafka-console-producer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-created-events-topic --property "parse.key=true" --property "key.separator=:"
+kafka-console-consumer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-canceled-events-topic --from-beginning
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092,localhost:9094 --topic product-created-events-topic --from-beginning
