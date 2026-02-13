@@ -1,0 +1,62 @@
+Kafka Topic CLI. Создаем и тестируем топик через командную строку
+(!) A Command Line Interface (CLI) is a text-based user interface used to interact with software,
+ operating systems, or network devices by typing commands into a terminal or console. 
+ ==============================================================
+ (!) Навіщо CLI:
+ 1. Створити новий топік
+ 2. Ввести список топіків
+ 3. Детальний опис топіка
+ 4. Видалити топік
+ 5. Змінити топік
+
+ (!) Command: kafka-topic.bat
+ ==============================================
+ Створення нового топіку:
+ (!) kafka-topics.bat
+ 1. kafka-topics.bat --create --topic payment-created-events-topic --partitions 3 --replication-factor 3 --bootstrap-server localhost:9092,localhost:9094
+
+--create --topic payment-created-events-topic => створення нового топіка з іменем payment-created-events-topic
+--partitions 3  =>  кількість партицій, кількість consumers не може перевищувати кількість партицій
+    (!) тобто якщо партиція одна, то паралельної обробки не буде, навіть якщо багато консьюмерів запустили
+--replication-factor 3  => Три(3) копіі кожної портиції (одна в лідері, дві в репліках), не може бути більше ніж серверів
+--bootstrap-server localhost:9092,localhost:9094 => список брокерів в кластері, можна вказати тільки один,  
+        і він знайде решту, але краще список для надійності
+
+kafka-server-start.bat ..\..\config\kraft\server-1.properties
+
+C:\kafka\bin\windows>
+kafka-topics.bat --create --topic payment-created-events-topic --partitions 3 --replication-factor 3 --bootstrap-server localhost:9092,localhost:9094
+Created topic payment-created-events-topic.
+
+kafka-topics.bat --create --topic payment-sent-events-topic --partitions 3 --replication-factor 3 --bootstrap-server localhost:9092,localhost:9094
+
+==============================================
+ Список всіх топіків:
+ 2. kafka-topics.bat --list --bootstrap-server localhost:9092,localhost:9094
+
+ C:\kafka\bin\windows>kafka-topics.bat --list --bootstrap-server localhost:9092,localhost:9094
+payment-created-events-topic
+payment-sent-events-topic
+
+==============================================
+Отримання детального опису топіків:
+3. kafka-topics.bat --describe --bootstrap-server localhost:9092,localhost:9094
+
+C:\kafka\bin\windows>kafka-topics.bat --describe --bootstrap-server localhost:9092,localhost:9094
+Topic: payment-sent-events-topic        TopicId: Axd2xdnSRC6ac8Fm6ktR-w PartitionCount: 3       ReplicationFactor: 3    Configs: segment.bytes=1073741824
+        Topic: payment-sent-events-topic        Partition: 0    Leader: 1       Replicas: 1,2,3 Isr: 1,2,3      Elr:    LastKnownElr:
+        Topic: payment-sent-events-topic        Partition: 1    Leader: 2       Replicas: 2,3,1 Isr: 2,3,1      Elr:    LastKnownElr:
+        Topic: payment-sent-events-topic        Partition: 2    Leader: 3       Replicas: 3,1,2 Isr: 3,1,2      Elr:    LastKnownElr:
+Topic: payment-created-events-topic     TopicId: FJbqjv6OT9CUwBIsy8HnwQ PartitionCount: 3       ReplicationFactor: 3    Configs: segment.bytes=1073741824
+        Topic: payment-created-events-topic     Partition: 0    Leader: 1       Replicas: 1,2,3 Isr: 1,2,3      Elr:    LastKnownElr:
+        Topic: payment-created-events-topic     Partition: 1    Leader: 2       Replicas: 2,3,1 Isr: 2,3,1      Elr:    LastKnownElr:
+        Topic: payment-created-events-topic     Partition: 2    Leader: 3       Replicas: 3,1,2 Isr: 3,1,2      Elr:    LastKnownElr:
+
+===============================================================================
+Видалення топіків
+3. kafka-topics.bat --delete --topic payment-created-events-topic  --bootstrap-server localhost:9092,localhost:9094
+
+kafka-topics.bat --delete --topic payment-created-events-topic  --bootstrap-server localhost:9092,localhost:9094
+kafka-topics.bat --delete --topic payment-sent-events-topic  --bootstrap-server localhost:9092,localhost:9094
+
+(!) delete.topic.enable=true

@@ -1,0 +1,86 @@
+08. Kafka Consumer CLI
+Читати повідомлення з топіку:
+===========================================
+cd C:\kafka\bin\windows
+Commands:
+(!) kafka-console-consumer.bat
+1. kafka-console-consumer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-canceled-events-topic --from-beginning
+
+Help:
+kafka-console-producer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-canceled-events-topic --property "parse.key=true" --property "key.separator=:"
+
+
+2. kafka-console-consumer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-canceled-events-topic --from-beginning --property "print.key=true"
+Output:
+C:\kafka\bin\windows>kafka-console-consumer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-canceled-events-topic --from-beginning --property "print.key=true"
+null    test
+null    kafka-console-producer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-canceled-events-topic
+null    test2
+null    How are you
+null    exit
+name    Olga
+age     25
+name    Nick
+age     95
+test    123
+
+3. kafka-console-consumer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-canceled-events-topic --from-beginning --property "print.key=true" --property "print.value=false"
+
+C:\kafka\bin\windows>kafka-console-consumer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-canceled-events-topic --from-beginning --property "print.key=true" --property "print.value=false"
+null
+null
+null
+null
+null
+name
+age
+name
+age
+test
+password
+
+4. kafka-console-consumer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-canceled-events-topic  --property "print.key=true" 
+Remove (only new message):--from-beginning
+
+5. Робота з партиціями
+Для топіка payment-created-events-topic
+kafka-console-producer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-created-events-topic --property "parse.key=true" --property "key.separator=:"
+
+(!) Відпрацював продюсер
+C:\kafka\bin\windows>kafka-console-producer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-created-events-topic --property "parse.key=true" --property "key.separator=:"
+>name:1
+>name:2
+>name:3
+>name:3
+>a:1
+>a:2
+>a:3
+>d:1
+>d:2
+>d:3
+>age:11
+>age:22
+>age:33
+>age:44
+
+
+(!) Працює консюмер:
+kafka-console-consumer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-created-events-topic --from-beginning --property "print.key=true"
+C:\kafka\bin\windows>kafka-console-consumer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-created-events-topic --from-beginning --property "print.key=true"
+nick    skorobagatyi
+d       1
+d       2
+d       3
+age     11
+age     22
+age     33
+age     44
+name    1
+name    2
+name    3
+name    3
+a       1
+a       2
+a       3
+Processed a total of 15 messages
+(!!!) ВІдповіді виводять по портиціям

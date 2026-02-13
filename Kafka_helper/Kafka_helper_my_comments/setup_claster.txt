@@ -1,0 +1,53 @@
+(!) Запуск декілька серверів в кластері
+(!!!)
+broker.properties       - конфігурація сервера, який діє як брокер, 
+                            налаштовуємо топіки і портиції
+controller.properties   - конфігурація сервера, який діє як контролер,
+                            він керує метаданими кластера, координує лідерів
+server.properties       - конфігурація сервера, який діє як контролер і як брокер
+=======================================================
+1. Файл конфігурації під кожний сервер файл server.properties
+
+2. Оновити властивості (файл server.properties):
+2.1.- node.id => Визначає унікальний ідентифікатор для сервера Kafka в кластері
+    # The node id associated with this instance's roles
+    node.id=1
+
+2.2.- listeners => визначає список адркс (host:port) для брокерів і контролерів.
+Це мережеві інтерфейси, які kafka використовує для спілкування з іншими серверами і клієнтами
+    #     listeners = PLAINTEXT://your.host.name:9092
+    listeners=PLAINTEXT://:9092,CONTROLLER://:9093
+    PLAINTEXT://:9092  - це брокер
+    CONTROLLER://:9093 - це контролер
+
+2.3.- controller.quorum.voters => Список votes (виборців), які складають кворум в кластері, приймають рішення
+по забезпеченню согласованості даних і відмовостійкості.
+(!) Список контролерів, які будуть взаємодіяти в кластері (Leader <=> Follower)
+    # The connect string for the controller quorum
+    controller.quorum.voters=1@localhost:9093,2@localhost:9095,3@localhost:9097
+
+2.4.- advertised.listeners => Список адрес для з'єднення з брокером, відрізняється від властивості listeners, яке
+визначає адреса і порти, які брокер Kafka використовує для прослуховування вхідних підключень
+(!) Список контролерів, які будуть взаємодіяти в кластері (Leader <=> Follower)
+
+2.5.- log.dirs => Локальна директорія метаданих, логів, снапшотів даного сервера
+    # A comma separated list of directories under which to store log files
+    log.dirs=/tmp/server-3/kraft-combined-logs
+=======================================================
+(!) Тепер створюємо кластер наступними командами:
+cd C:\kafka\bin\windows
+kafka-storage.bat random-uuid
+kafka-storage.bat format -t oh66KstQTxCXIdRK910-_g -c ..\..\config\kraft\server-1.properties
+kafka-storage.bat format -t yvp8_4R8R4CpOKzeuTkYBw -c ..\..\config\kraft\server-2.properties
+kafka-storage.bat format -t yvp8_4R8R4CpOKzeuTkYBw -c ..\..\config\kraft\server-3.properties
+
+cd C:\kafka\bin\windows
+kafka-server-start.bat ..\..\config\kraft\server-1.properties
+kafka-server-start.bat ..\..\config\kraft\server-2.properties
+kafka-server-start.bat ..\..\config\kraft\server-3.properties
+=======================================================
+cd C:\kafka\bin\windows
+Як зупиняти kafka server
+
+1. Спочатку зупиняємо producers і consumers
+2. kafka-server-stop

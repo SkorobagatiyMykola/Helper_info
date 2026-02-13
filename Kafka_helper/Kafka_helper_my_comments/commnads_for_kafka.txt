@@ -1,0 +1,24 @@
+Commands for kafka:
+
+1. Генеруємо ID для kafka кластера  
+    cd C:\kafka\bin\windows
+    kafka-storage.bat random-uuid
+==================================================
+2. Форматуємо логи для взаємодії з kraft-режимом
+    kafka-storage.bat format -t ID(random-uuid) - c ..\..\config\kraft\server.properties
+    -c флаг c значить конфігурація
+    kafka-storage.bat format -t EPVYRE1rTDCpv_gnwcS0Tw -c ..\..\config\kraft\server.properties
+
+Результат:
+
+C:\kafka\bin\windows>kafka-storage.bat format -t EPVYRE1rTDCpv_gnwcS0Tw -c ..\..\config\kraft\server.properties
+Formatting /tmp/kraft-combined-logs with metadata.version 3.8-IV0.
+==================================================
+3. Запуск kafka з дефолтним конфігом:
+    kafka-server-start.bat ..\..\config\kraft\server.properties
+
+=====================================================    
+=====================================================    
+=====================================================    
+(!) Запуск декілька серверів в кластері
+1. Файл конфігурації під кожний сервер

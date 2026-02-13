@@ -1,0 +1,31 @@
+Kafka Producer CLI. Отправка сообщений серверу через командную строку
+kafka-topics.bat --create --topic payment-created-events-topic --partitions 3 --replication-factor 3 --bootstrap-server localhost:9092,localhost:9094
+============================================================
+(!) Відправити сповіщення мануально ручками, щоб побачити, як це працює
+Commands:
+(!) kafka-console-producer.bat
+1. kafka-console-producer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-created-events-topic
+Test:
+kafka-console-producer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-canceled-events-topic
+
+auto.create.topics.enable=true
+==============================================
+C:\kafka\bin\windows>kafka-topics.bat --describe --bootstrap-server localhost:9092,localhost:9094
+Topic: payment-canceled-events-topic    TopicId: LZk9LJnZTHWJGVsC1rxoUw PartitionCount: 1       ReplicationFactor: 1    Configs: segment.bytes=1073741824
+        Topic: payment-canceled-events-topic    Partition: 0    Leader: 3       Replicas: 3     Isr: 3  Elr:    LastKnownElr:
+Topic: payment-sent-events-topic        TopicId: AGjktm-XS32FiM4Vm2YDNg PartitionCount: 3       ReplicationFactor: 3    Configs: segment.bytes=1073741824
+        Topic: payment-sent-events-topic        Partition: 0    Leader: 1       Replicas: 1,2,3 Isr: 1,2,3      Elr:    LastKnownElr:
+        Topic: payment-sent-events-topic        Partition: 1    Leader: 2       Replicas: 2,3,1 Isr: 2,3,1      Elr:    LastKnownElr:
+        Topic: payment-sent-events-topic        Partition: 2    Leader: 3       Replicas: 3,1,2 Isr: 3,1,2      Elr:    LastKnownElr:
+Topic: payment-created-events-topic     TopicId: NhqI69gBQx22W1h2EDnw6w PartitionCount: 3       ReplicationFactor: 3    Configs: segment.bytes=1073741824
+        Topic: payment-created-events-topic     Partition: 0    Leader: 1       Replicas: 1,2,3 Isr: 1,2,3      Elr:    LastKnownElr:
+        Topic: payment-created-events-topic     Partition: 1    Leader: 2       Replicas: 2,3,1 Isr: 2,3,1      Elr:    LastKnownElr:
+        Topic: payment-created-events-topic     Partition: 2    Leader: 3       Replicas: 3,1,2 Isr: 3,1,2      Elr:    LastKnownElr:
+
+(!)         payment-canceled-events-topic  - даний топік створився за замовчуванням, си не вказували конфіги для нього
+==============================================
+
+1. kafka-console-producer.bat --bootstrap-server localhost:9092,localhost:9094 --topic payment-created-events-topic --property "parse.key=true" --property "key.separator=:"
+--property "parse.key=true"  - потрібно буде парсити ключ
+--property "key.separator=:" - сепаратор :
+key:value
