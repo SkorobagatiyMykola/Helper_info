@@ -7,5 +7,5 @@ DRY	=>	Don't Repeat Yourself
 YAGNI	=>	You Ain't Gonna Need It
 	Принцип разработки ПО, призывающий не добавлять функциональность, пока в ней не возникнет непосредственной необходимости
 
-KISS	=>	Keep It Simple, Stupid 
+KISS	=>	 Keep It Simple, Stupid 
 	«делай это максимально просто» или Keep It Short and Simple — «делай короче и проще»)
