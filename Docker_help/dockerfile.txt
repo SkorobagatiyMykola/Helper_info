@@ -12,6 +12,7 @@ Commands:
 
 =====================================================
 Example for context Dockerfile:
+
 FROM openjdk:17
 
 COPY . /java
